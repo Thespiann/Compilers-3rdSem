@@ -33,16 +33,18 @@ int main(){
 
 
 void produceZ(){
-    //putchar('(');
-    printf("\nZ-->(K)");
+    printf("\nZ-->(K)\t");
     strcat(str, tmp1);
+    printf("%s",str);
+    printf("K)");
     produceK();
-    //putchar(')');
     strcat(str, tmp2);
 }
 
 void produceK(){
-    printf("\nK-->GM");
+    printf("\nK-->GM\t");
+    printf("%s",str);
+    printf("GM)");
     produceG();
     produceM();
 }
@@ -51,12 +53,15 @@ void produceG(){
     switch (rand()%2)
     {
     case 0:
-        //putchar('v');
-        printf("\nG-->v");
+        printf("\nG-->v\t");
         strcat(str, tmp3);
+        printf("%s",str);
+        printf("M)");
         break;
     case 1:
-        printf("\nG-->Z");
+        printf("\nG-->Z\t");
+        printf("%s",str);
+        printf("ZM)");
         produceZ();
         break;
     }
@@ -67,18 +72,22 @@ void produceM(){
     {
     case 0:
         //putchar('-');
-        printf("\nM-->-K");
+        printf("\nM-->-K\t");
         strcat(str, tmp5);
+        printf("%s",str);
+        printf("K)");
         produceK();
         break;
     case 1:
         //putchar('+');
-        printf("\nM-->+K");
+        printf("\nM-->+K\t");
         strcat(str, tmp4);
+        printf("%s",str);
+        printf("K)");
         produceK();
         break;
     default:
-        printf("\nM-->e");
+        printf("\nM-->e\t");
         break;
     }
 }
