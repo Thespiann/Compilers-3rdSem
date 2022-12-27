@@ -23,20 +23,23 @@ int checklength(char *s){
     token = strtok(NULL, " ");
     strcpy(str2,token);
 
-    if(strcmp(str1,"point")==0 && check_unique(str2)==1 && strlen(str2)==1){
-        printf("Accepted: point\n");
-    }
-    else {
-        printf("Rejected: repeated symbols\n");
-    }
+    if(strcmp(str1,"point")==0){
+        if (check_unique(str2)==1){
+            printf("Accepted: point\n");
+        }
+        else {
+            printf("Rejected: repeated symbols\n");
+        } 
+    }  
     
     if(strcmp(str1,"line")==0){
-        if (check_unique(str2)) {
+        if (check_unique(str2)==1){
             printf("Accepted: line\n");
-        }else {
-            printf("Rejected: repeated symbols\n");
         }
-    }
+        else {
+            printf("Rejected: repeated symbols\n");
+        } 
+    }  
 
     if(strcmp(str1,"triangle")==0){
         
@@ -68,11 +71,6 @@ point" "[A-Z] {
     
 }
 line" "[A-Z][A-Z] {
-    if (check_unique(yytext)) {
-        printf("Accepted: line\n");
-    } else {
-        printf("Rejected: repeated symbols\n");
-    }
     checklength(yytext);
 }
 triangle" "[A-Z][A-Z][A-Z] {
@@ -84,11 +82,6 @@ triangle" "[A-Z][A-Z][A-Z] {
     checklength(yytext);
 }
 square" "[A-Z][A-Z][A-Z][A-Z] {
-    if (check_unique(yytext)) {
-        printf("Accepted: square\n");
-    } else {
-        printf("Rejected: repeated symbols\n");
-    }
     checklength(yytext);
 }
 pentagon" "[A-Z][A-Z][A-Z][A-Z][A-Z] {
