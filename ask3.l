@@ -16,7 +16,7 @@ int check_unique(char *s) {
     return 1;
 }
 
-int checklength(char *s){
+int check(char *s){
     char *token;
     token = strtok(s," ");
     strcpy(str1,token);
@@ -96,29 +96,29 @@ int checklength(char *s){
 
 %%
 
-^[ \t]*point" "[A-Z] { 
-    checklength(yytext);
+point" "[A-Z] { 
+    check(yytext);
 }
-^[ \t]*line" "[A-Z]{2} {
-    checklength(yytext);
+line" "[A-Z]{2} {
+    check(yytext);
 }
-^[ \t]*triangle" "[A-Z]{3} {
-    checklength(yytext);
+triangle" "[A-Z]{3} {
+    check(yytext);
 }
-^[ \t]*square" "[A-Z]{4} {
-    checklength(yytext);
+square" "[A-Z]{4} {
+    check(yytext);
 }
-^[ \t]*pentagon" "[A-Z]{5} {
-    checklength(yytext);
+pentagon" "[A-Z]{5} {
+    check(yytext);
 }
-^[ \t]*hexagon" "[A-Z]{6} {
-    checklength(yytext);
+hexagon" "[A-Z]{6} {
+    check(yytext);
 }
-^[ \t]*heptagon" "[A-Z]{7} {
-    checklength(yytext);
+heptagon" "[A-Z]{7} {
+    check(yytext);
 }
-^[ \t]*octagon" "[A-Z]{8} {
-    checklength(yytext);
+octagon" "[A-Z]{8} {
+    check(yytext);
 }
 [\t] {return 0;}
 .* {printf("Error.\n");}
